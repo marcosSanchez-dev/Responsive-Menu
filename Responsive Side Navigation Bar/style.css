@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 96px;
+  background-color: #3d405b;
+  padding: 2%;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sidebar.active{
+  width: 240px;
+}
+
+.sidebar .logo_content .logo {
+  color: #fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.active .logo_content .logo{
+  opacity: 1;
+  pointer-events: none;
+}
+
+.logo_content .logo i {
+  font-size: 28px;
+  margin-right: 5px;
+}
+
+.logo_content .logo .logo_name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sidebar #btn {
+  position: absolute;
+  color: #fff;
+  left: 58%;
+  top: 6px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 118px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.sidebar.active #btn{
+  left: 90%;
+}
+
+.sidebar ul {
+  margin-top: 15px;
+}
+
+.sidebar ul li {
+  list-style: none;
+  position: relative;
+  height: 70px;
+  width: 100%;
+  margin: 0 5px;
+}
+
+/*
+    Tooltip
+*/
+.sidebar ul li .tooltip{
+  position: absolute;
+  height: 35px;
+  width: 122px;
+  background: pink;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  left: 122px;
+  top: 0%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  transition: 0s;
+  pointer-events: none;
+  opacity: 0;
+  display: block;
+}
+
+.sidebar.active ul li .tooltip{
+  display: none;
+}
+
+.sidebar ul li:hover .tooltip{
+  transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+  top: 50%;
+  opacity: 1;
+}
+
+/*
+    Buscador
+*/
+
+.sidebar ul li input{
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+    outline: none;
+    border:none;
+    background: pink;
+    padding-left: 25px;
+    color: #3d405b; 
+    font-size: 1.1rem;
+}
+
+.sidebar ul li .bx-search-alt{
+    position: absolute;
+    z-index: 100;
+    font-size: 22px;
+    line-height: 100px;
+    display: flex;
+    align-items: center;
+    left: 0px;
+    top: 0px;
+    color: white;
+}
+
+.sidebar ul li .bx-search-alt:hover{
+  color: #3d405b;
+}
+
+/*
+    iconos del menu
+*/
+
+.sidebar ul li a{
+    color: #fff;
+    text-decoration: none;
+    display:flex;
+    align-items: center;
+    border-radius: 15px;
+    white-space: nowrap;
+    transition: all 0.4s ease-in-out;
+  }
+
+.sidebar ul li a:hover{
+    background-color: pink;
+    color: #3d405b;
+}
+
+/*
+    Iconos
+*/
+
+.sidebar ul li a i{
+    height: 50px;
+    min-height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    margin-right: 5px;
+}
+
+.sidebar .links_name{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar.active .links_name{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*
+    Info de perfil
+*/
+
+.sidebar .profile_content .profile{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    color: white;
+    background: pink;
+    padding: 5px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+.sidebar.active .profile_content .profile{
+  background: none;
+}
+
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition:all 0.4 ease;
+}
+
+.sidebar.active .profile_content .profile .profile_details{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile_content .profile .profile_details img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile .profile_details .name_job{
+    margin-left: 15px;;
+}
+
+.profile .profile_details .name{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profile .profile_details .job{
+    font-size: 12px;
+}
+
+.profile #log-out{
+    position: absolute;
+    left: 40%;
+    bottom: 18px;
+    font-size: 1.3rem;
+    min-width: 50px;
+    border-radius: 12px;
+    transition: all 0.4s ease-in-out;
+}
+
+.sidebar.active .profile #log-out{
+  left: 88%;
+}
+/*
+    Contenido en el home
+*/
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 96px);
+    left: 96px;
+    transition: all 0.4s ease;
+}
+
+.home_content .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 12px;
+}
+
+.sidebar.active ~ .home_content{
+  width: calc(100% - 240px);
+  left: 240px;
+}
